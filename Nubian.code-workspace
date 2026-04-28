@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "../Nubian"
+		},
+		{
+			"path": "../nubian-auth"
+		},
+		{
+			"path": "../nubian-dashboard"
+		}
+	]
+}
