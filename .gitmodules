@@ -1,0 +1,9 @@
+[submodule "apps/backend"]
+	path = apps/backend
+	url = https://github.com/TPAIN22/nubian-auth
+[submodule "apps/dashboard"]
+	path = apps/dashboard
+	url = https://github.com/TPAIN22/nubian-dashboard
+[submodule "apps/mobile"]
+	path = apps/mobile
+	url = https://github.com/TPAIN22/Nubian
