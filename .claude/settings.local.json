@@ -10,7 +10,8 @@
       "Bash(node --check src/models/merchant.model.js)",
       "Bash(node --check src/models/product.model.js)",
       "Bash(npx --no-install tsc --noEmit -p tsconfig.json)",
-      "Skill(schedule)"
+      "Skill(schedule)",
+      "Bash(npx tsc *)"
     ]
   }
 }
