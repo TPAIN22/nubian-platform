@@ -11,7 +11,22 @@
       "Bash(node --check src/models/product.model.js)",
       "Bash(npx --no-install tsc --noEmit -p tsconfig.json)",
       "Skill(schedule)",
-      "Bash(npx tsc *)"
+      "Bash(npx tsc *)",
+      "Bash(node scripts/seed-sudan.js)",
+      "Bash(dir store *)",
+      "Bash(dir \"app\\\\\\(auth\\)\")",
+      "Bash(dir src\\\\middleware)",
+      "Bash(dir src *)",
+      "Bash(powershell -Command \"Get-ChildItem src/middleware\")",
+      "Bash(powershell -Command \"Get-ChildItem 'app/\\(tabs\\)' | Select-Object Name\")",
+      "Bash(powershell -Command \"Select-String -Path 'src/models/user.model.js' -Pattern 'referralCode' -Context 2,2\")",
+      "Bash(powershell -Command \"Get-ChildItem src/scripts | Select-Object Name\")",
+      "Bash(node *)",
+      "Bash(powershell -Command \"Get-Content node_modules/sonner-native/package.json | Select-String -Pattern 'peerDependencies|safe-area' -Context 1,5\")",
+      "Bash(powershell -Command \"Get-Content package.json | Select-String -Pattern 'reanimated|worklets|safe-area|gesture-handler|sonner-native'\")",
+      "Bash(powershell -Command \"Select-String -Path 'app/_layout.tsx' -Pattern '<Toaster' -SimpleMatch\")",
+      "Bash(ls assets/)",
+      "Bash(ls assets/images/)"
     ]
   }
 }
