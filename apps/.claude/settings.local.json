@@ -8,7 +8,20 @@
       "Bash(git -C /c/Users/HUAWEI/Desktop/nubian_platform/apps/backend diff --stat)",
       "Bash(git *)",
       "Bash(npx tsc *)",
-      "Skill(schedule)"
+      "Skill(schedule)",
+      "Bash(node --check src/services/mailService.js)",
+      "Bash(node --check src/controllers/user.controller.js)",
+      "Bash(node --check src/controllers/order.controller.js)",
+      "Bash(node --check src/controllers/merchant.controller.js)",
+      "Bash(node --check src/services/notificationService.js)",
+      "Bash(node --check src/workers/fanout.worker.js)",
+      "Bash(node --check src/controllers/notification.controller.js)",
+      "Bash(node --check src/controllers/queues.admin.controller.js)",
+      "Bash(node --check src/routes/queues.admin.route.js)",
+      "Bash(node --check src/index.js)",
+      "Bash(node --check src/workers/maintenance.worker.js)",
+      "Bash(xargs grep -l \"status.*===\")",
+      "Bash(npx next *)"
     ]
   }
 }

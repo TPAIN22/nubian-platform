@@ -79,6 +79,18 @@ Two rate limiters: a general `limiter` (300/15min) on `/api`, and a stricter `au
 
 `uncaughtException` and `unhandledRejection` handlers are registered before any of this and exit the process — keep them that way.
 
+### Notification queue pipeline (`src/lib/queue/`, `src/workers/`, `src/services/channels/`)
+The notification subsystem is queue-driven (BullMQ + Redis). Default is `ENABLE_QUEUE=true`; set it to `false` to fall back to the synchronous legacy path (no Redis required) for local dev or as an outage escape hatch.
+
+- **Producers** (`services/notificationService.js`, `services/mailService.js`) bulk-insert / bulk-enqueue and return immediately — HTTP requests never block on Expo or Resend.
+- **Queues** (`lib/queue/queues.js`): `push`, `email`, `sms`, `fanout`, `maintenance`. Names are namespaced as `nubian_notif_<channel>` and an optional `REDIS_PREFIX` adds a further prefix for shared Redis.
+- **Workers** (`workers/<channel>.worker.js`, entrypoint `workers/index.js`): one process can host any combo via `WORKER_ROLES=push,email,fanout,maintenance`. Run as a separate dyno (`npm run worker`) or in-process via `RUN_WORKERS_INPROCESS=true`.
+- **Fanout worker** streams broadcast/marketing recipients via a Mongo cursor in 1000-id chunks, bulk-inserts notifications with `status='queued'`, then `addBulk`s child `push.send` jobs — memory stays bounded for any audience size.
+- **Job idempotency**: producers use `jobId = push:<deduplicationKey>` / `email:welcome:<recipient>` / etc., so duplicate enqueues collapse into one delivery. Job payloads are versioned (`v: 1`); workers DLQ unknown versions instead of guessing.
+- **Maintenance worker** runs three repeatable jobs (scheduled idempotently via `Queue.upsertJobScheduler`): `token-cleanup` (03:00 daily), `expired-notifs` (03:15 daily, deletes `Notification` rows past `expiresAt + 30d`), and `dlq-sweep` (every 6h, retries recently-failed jobs once with a 14-day idempotency set in Redis).
+- **Admin DLQ tooling**: `GET /api/admin/queues/stats`, `GET /:queue/failed`, `POST /:queue/retry`, `POST /:queue/drain` (admin-only). The `:queue` param accepts shortname (`push`/`email`/`sms`/`fanout`/`maintenance`) or full name.
+- **Upstash compatibility**: use `rediss://...` URL. Each `Worker` opens ~2 Redis connections and each `Queue` ~1; budget ~14 connections for a full single-process API+worker setup.
+
 ### Backend domain layout (`src/`)
 - `routes/*.route.js` → `controllers/*.controller.js` → `services/*.service.js` (or directly to `models/`).
 - `repositories/` exists for a few aggregates (`merchant`, `dispute`, `ticket`) — most domains still call models directly.

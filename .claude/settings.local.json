@@ -26,7 +26,10 @@
       "Bash(powershell -Command \"Get-Content package.json | Select-String -Pattern 'reanimated|worklets|safe-area|gesture-handler|sonner-native'\")",
       "Bash(powershell -Command \"Select-String -Path 'app/_layout.tsx' -Pattern '<Toaster' -SimpleMatch\")",
       "Bash(ls assets/)",
-      "Bash(ls assets/images/)"
+      "Bash(ls assets/images/)",
+      "Bash(dir C:UsersHUAWEIDesktopnubian_platform *)",
+      "Bash(Get-ChildItem -Recurse -Path \".\" -Filter \"*notif*\")",
+      "Bash(Select-Object FullName)"
     ]
   }
 }
