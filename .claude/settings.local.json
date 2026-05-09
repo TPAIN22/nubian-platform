@@ -29,7 +29,24 @@
       "Bash(ls assets/images/)",
       "Bash(dir C:UsersHUAWEIDesktopnubian_platform *)",
       "Bash(Get-ChildItem -Recurse -Path \".\" -Filter \"*notif*\")",
-      "Bash(Select-Object FullName)"
+      "Bash(Select-Object FullName)",
+      "Bash(Get-ChildItem *)",
+      "Bash(powershell -Command \"\\(Get-Content locales/en.json | Measure-Object -Line\\).Lines; \\(Get-Content locales/ar.json | Measure-Object -Line\\).Lines\")",
+      "Bash(findstr /C:\"orderStore\")",
+      "Bash(powershell -Command \"Get-ChildItem -Path 'store' -Filter 'orderStore*' -Recurse\")",
+      "Bash(npx expo *)",
+      "Bash(powershell -Command \"Test-Path utils/errorMessages.ts; Test-Path utils/apiError.ts\")",
+      "Bash(powershell -Command \"Test-Path config; Test-Path constants\")",
+      "Bash(powershell -Command \"Get-ChildItem constants -Recurse -File | Select-Object -First 20 Name, FullName\")",
+      "Bash(powershell -Command \"Test-Path __tests__; Get-ChildItem -Path __tests__ -ErrorAction SilentlyContinue | Select-Object -First 5 Name\")",
+      "Bash(powershell -Command \"Get-ChildItem __tests__ -Recurse -File | Select-Object FullName\")",
+      "Bash(powershell -Command \"Get-Content jest.config.* -ErrorAction SilentlyContinue | Select-Object -First 50\")",
+      "Bash(npx jest *)",
+      "Bash(findstr /I \"price compute i18n\")",
+      "Bash(npx skills *)",
+      "Bash(findstr /i onboard)",
+      "Bash(dir \"C:\\\\Users\\\\HUAWEI\\\\Desktop\\\\nubian_platform\\\\apps\\\\mobile\\\\assets\\\\images\" /b)",
+      "Bash(findstr /i \"onboard\")"
     ]
   }
 }
