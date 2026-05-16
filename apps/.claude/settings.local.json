@@ -21,7 +21,10 @@
       "Bash(node --check src/index.js)",
       "Bash(node --check src/workers/maintenance.worker.js)",
       "Bash(xargs grep -l \"status.*===\")",
-      "Bash(npx next *)"
+      "Bash(npx next *)",
+      "Bash(npm run *)",
+      "Bash(npx expo *)",
+      "Bash(node *)"
     ]
   }
 }

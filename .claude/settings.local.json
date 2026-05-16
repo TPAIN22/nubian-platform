@@ -46,7 +46,14 @@
       "Bash(npx skills *)",
       "Bash(findstr /i onboard)",
       "Bash(dir \"C:\\\\Users\\\\HUAWEI\\\\Desktop\\\\nubian_platform\\\\apps\\\\mobile\\\\assets\\\\images\" /b)",
-      "Bash(findstr /i \"onboard\")"
+      "Bash(findstr /i \"onboard\")",
+      "Bash(git *)",
+      "mcp__ide__getDiagnostics",
+      "Bash(npx next *)",
+      "Bash(dir apps *)",
+      "Bash(dir *)",
+      "Bash(rm \"C:/Users/HUAWEI/Desktop/nubian_platform/apps/dashboard/src/app/api/admin/support/[id]/route.ts\")",
+      "Bash(rmdir \"C:/Users/HUAWEI/Desktop/nubian_platform/apps/dashboard/src/app/api/admin/support/[id]\")"
     ]
   }
 }
