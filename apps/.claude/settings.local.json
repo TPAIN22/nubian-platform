@@ -24,7 +24,8 @@
       "Bash(npx next *)",
       "Bash(npm run *)",
       "Bash(npx expo *)",
-      "Bash(node *)"
+      "Bash(node *)",
+      "PowerShell($bytes = [System.IO.File]::ReadAllBytes\\(\"C:\\\\Users\\\\HUAWEI\\\\Desktop\\\\nubian_platform\\\\apps\\\\mobile\\\\.env.local\"\\); \"First 4 bytes \\(hex\\): \" + \\($bytes[0..3] | ForEach-Object { '{0:X2}' -f $_ }\\) -join ' '; \"Total bytes: $\\($bytes.Length\\)\"; \"Detected encoding: \" + $\\(if \\($bytes[0] -eq 0xFF -and $bytes[1] -eq 0xFE\\) { \"UTF-16 LE \\(BOM\\)\" } elseif \\($bytes[0] -eq 0xFE -and $bytes[1] -eq 0xFF\\) { \"UTF-16 BE \\(BOM\\)\" } elseif \\($bytes[0] -eq 0xEF -and $bytes[1] -eq 0xBB -and $bytes[2] -eq 0xBF\\) { \"UTF-8 BOM\" } else { \"UTF-8 / ASCII\" }\\))"
     ]
   }
 }

@@ -53,7 +53,9 @@
       "Bash(dir apps *)",
       "Bash(dir *)",
       "Bash(rm \"C:/Users/HUAWEI/Desktop/nubian_platform/apps/dashboard/src/app/api/admin/support/[id]/route.ts\")",
-      "Bash(rmdir \"C:/Users/HUAWEI/Desktop/nubian_platform/apps/dashboard/src/app/api/admin/support/[id]\")"
+      "Bash(rmdir \"C:/Users/HUAWEI/Desktop/nubian_platform/apps/dashboard/src/app/api/admin/support/[id]\")",
+      "PowerShell(npx tsc --noEmit 2>$null; echo \"exit: $LASTEXITCODE\")",
+      "PowerShell(npm run *)"
     ]
   }
 }
