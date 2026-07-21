@@ -55,7 +55,16 @@
       "Bash(rm \"C:/Users/HUAWEI/Desktop/nubian_platform/apps/dashboard/src/app/api/admin/support/[id]/route.ts\")",
       "Bash(rmdir \"C:/Users/HUAWEI/Desktop/nubian_platform/apps/dashboard/src/app/api/admin/support/[id]\")",
       "PowerShell(npx tsc --noEmit 2>$null; echo \"exit: $LASTEXITCODE\")",
-      "PowerShell(npm run *)"
+      "PowerShell(npm run *)",
+      "PowerShell(Get-ChildItem app -Recurse -File | Select-Object -ExpandProperty FullName | ForEach-Object { $_.Replace\\(\\(Get-Location\\).Path + '\\\\', ''\\) })",
+      "PowerShell(\\(Get-Content \"app\\\\\\(screens\\)\\\\[id].tsx\" | Measure-Object -Line\\).Lines; \\(Get-Content \"app\\\\\\(tabs\\)\\\\cart.tsx\" | Measure-Object -Line\\).Lines; \\(Get-Content \"app\\\\\\(screens\\)\\\\checkout.tsx\" | Measure-Object -Line\\).Lines; \\(Get-Content \"app\\\\\\(tabs\\)\\\\profile.tsx\" | Measure-Object -Line\\).Lines; \\(Get-Content \"app\\\\\\(tabs\\)\\\\wishlist.tsx\" | Measure-Object -Line\\).Lines)",
+      "PowerShell(\\(Get-Content -LiteralPath \"app\\\\\\(screens\\)\\\\[id].tsx\" | Measure-Object -Line\\).Lines)",
+      "PowerShell(\\(Get-Content -LiteralPath \"app\\\\\\(screens\\)\\\\details\\\\[details].tsx\" | Measure-Object -Line\\).Lines; \\(Get-Content -LiteralPath \"app\\\\\\(onboarding\\)\\\\index.tsx\" | Measure-Object -Line\\).Lines; \\(Get-Content -LiteralPath \"components\\\\home\\\\BannerCarousel.tsx\" | Measure-Object -Line\\).Lines)",
+      "PowerShell(npx expo install @shopify/flash-list 2>&1 | Select-Object -Last 15)",
+      "Bash(npx eslint *)",
+      "Bash(grep -iB1 \"restricted\")",
+      "PowerShell(try { $r = Invoke-WebRequest -Uri \"http://192.168.50.83:5000/health\" -TimeoutSec 5 -UseBasicParsing; \"PC->LAN OK: $\\($r.StatusCode\\)\" } catch { \"PC->LAN health FAILED: $\\($_.Exception.Message\\)\" }; try { $r2 = Invoke-WebRequest -Uri \"http://127.0.0.1:5000/health\" -TimeoutSec 5 -UseBasicParsing; \"PC->localhost OK: $\\($r2.StatusCode\\)\" } catch { \"PC->localhost health FAILED: $\\($_.Exception.Message\\)\" })",
+      "PowerShell(try { $r=Invoke-WebRequest \"http://192.168.0.115:5000/health\" -TimeoutSec 5 -UseBasicParsing; \"LAN OK: $\\($r.StatusCode\\)\" } catch { \"LAN FAIL: $\\($_.Exception.Message\\)\" })"
     ]
   }
 }
