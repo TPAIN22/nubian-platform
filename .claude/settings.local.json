@@ -64,7 +64,19 @@
       "Bash(npx eslint *)",
       "Bash(grep -iB1 \"restricted\")",
       "PowerShell(try { $r = Invoke-WebRequest -Uri \"http://192.168.50.83:5000/health\" -TimeoutSec 5 -UseBasicParsing; \"PC->LAN OK: $\\($r.StatusCode\\)\" } catch { \"PC->LAN health FAILED: $\\($_.Exception.Message\\)\" }; try { $r2 = Invoke-WebRequest -Uri \"http://127.0.0.1:5000/health\" -TimeoutSec 5 -UseBasicParsing; \"PC->localhost OK: $\\($r2.StatusCode\\)\" } catch { \"PC->localhost health FAILED: $\\($_.Exception.Message\\)\" })",
-      "PowerShell(try { $r=Invoke-WebRequest \"http://192.168.0.115:5000/health\" -TimeoutSec 5 -UseBasicParsing; \"LAN OK: $\\($r.StatusCode\\)\" } catch { \"LAN FAIL: $\\($_.Exception.Message\\)\" })"
+      "PowerShell(try { $r=Invoke-WebRequest \"http://192.168.0.115:5000/health\" -TimeoutSec 5 -UseBasicParsing; \"LAN OK: $\\($r.StatusCode\\)\" } catch { \"LAN FAIL: $\\($_.Exception.Message\\)\" })",
+      "Bash(echo \"=== EXIT: $? ===\")",
+      "Bash(pkill -f \"expo start\")",
+      "Bash(grep -o '[`\"]/[a-z-]*location-picker' .expo/types/router.d.ts)",
+      "Bash(npm run *)",
+      "Bash(npm install *)",
+      "Bash(python -c ' *)",
+      "Bash(echo \"EXIT=$?\")",
+      "Bash(echo \"mobile tsc exit=$?\")",
+      "Bash(GOOGLE_MAPS_ANDROID_API_KEY=test-android-key GOOGLE_MAPS_IOS_API_KEY=test-ios-key npx expo config --type public --json)",
+      "Bash(GOOGLE_MAPS_ANDROID_API_KEY=test-android-key node -e ' *)",
+      "Bash(GOOGLE_MAPS_ANDROID_API_KEY=test-android-key GOOGLE_MAPS_IOS_API_KEY=test-ios-key npx expo config --type prebuild --json)",
+      "Bash(echo \"tsc exit=$?\")"
     ]
   }
 }
