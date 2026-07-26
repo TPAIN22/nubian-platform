@@ -76,7 +76,13 @@
       "Bash(GOOGLE_MAPS_ANDROID_API_KEY=test-android-key GOOGLE_MAPS_IOS_API_KEY=test-ios-key npx expo config --type public --json)",
       "Bash(GOOGLE_MAPS_ANDROID_API_KEY=test-android-key node -e ' *)",
       "Bash(GOOGLE_MAPS_ANDROID_API_KEY=test-android-key GOOGLE_MAPS_IOS_API_KEY=test-ios-key npx expo config --type prebuild --json)",
-      "Bash(echo \"tsc exit=$?\")"
+      "Bash(echo \"tsc exit=$?\")",
+      "Bash(echo \"--- exit $? \\(1 = no matches, good\\) ---\")",
+      "Bash(head -758 orderDetailsDrawer.tsx)",
+      "Bash(printf 'export default OrderDetailsDrawer;\\\\n')",
+      "Bash(mv /tmp/d.tsx orderDetailsDrawer.tsx)",
+      "Bash(npx tsx *)",
+      "Bash('/c/Program Files/Google/Chrome/Application/chrome.exe' --headless --disable-gpu --no-pdf-header-footer --print-to-pdf=C:/Users/HUAWEI/AppData/Local/Temp/claude/C--Users-HUAWEI-Desktop-nubian-platform/d0bb3aef-8297-4b48-b9fe-fb825da8969b/scratchpad/invoice.pdf --virtual-time-budget=8000 http://localhost:4599/)"
     ]
   }
 }
