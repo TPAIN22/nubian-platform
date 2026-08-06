@@ -1,0 +1,13 @@
+{
+  "name": "@nubian/pricing-parity",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Fails the build when the dashboard pricing engine diverges from the backend pricing engine.",
+  "scripts": {
+    "test": "tsx parity.ts"
+  },
+  "devDependencies": {
+    "tsx": "4.19.2"
+  }
+}

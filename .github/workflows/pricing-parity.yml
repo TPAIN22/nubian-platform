@@ -1,0 +1,67 @@
+# Fails the build when the dashboard's pricing engine stops agreeing with the
+# backend's on any field.
+#
+#   source of truth : apps/backend/src/lib/pricing.engine.js
+#   mirror          : apps/dashboard/src/domain/pricing/pricing.engine.ts
+#
+# The two apps are separate git submodules with separate remotes; this repo is
+# the only place both are checked out at once, so it is the only place they can
+# be compared. See tools/pricing-parity/parity.ts.
+name: Pricing engine parity
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  # Lets you re-run the check by hand after bumping a submodule pointer.
+  workflow_dispatch:
+
+# A second push to the same branch cancels the first — this check is pure and
+# only the latest commit's result is meaningful.
+concurrency:
+  group: pricing-parity-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  parity:
+    name: backend engine == dashboard engine
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Check out repo and submodules
+        uses: actions/checkout@v4
+        with:
+          # Both apps/backend and apps/dashboard are required. If either
+          # submodule repo is private, replace the default token with a PAT
+          # that can read them:  token: ${{ secrets.SUBMODULES_TOKEN }}
+          submodules: recursive
+          fetch-depth: 1
+
+      - name: Fail early if a submodule did not check out
+        run: |
+          test -f apps/backend/src/lib/pricing.engine.js \
+            || { echo "::error::apps/backend did not check out — the parity test cannot run."; exit 1; }
+          test -f apps/dashboard/src/domain/pricing/pricing.engine.ts \
+            || { echo "::error::apps/dashboard did not check out — the parity test cannot run."; exit 1; }
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      # The backend engine imports pricing.config.js, which imports logger.js,
+      # which needs winston (a production dependency). The dashboard engine
+      # needs no install: its only non-local import is `import type`, which is
+      # erased at runtime.
+      - name: Install backend runtime dependencies
+        working-directory: apps/backend
+        run: npm ci --omit=dev --no-audit --no-fund
+
+      - name: Install parity harness
+        working-directory: tools/pricing-parity
+        run: npm ci --no-audit --no-fund
+
+      - name: Compare pricing engines
+        working-directory: tools/pricing-parity
+        run: npm test

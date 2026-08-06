@@ -1,3 +1,6 @@
 /.agents
 
 /.claude
+
+# Installed by tools/pricing-parity (the CI parity harness).
+node_modules/
